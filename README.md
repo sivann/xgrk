@@ -102,6 +102,7 @@ You may also switch language by clicking onto the flag._
 
 ### Command line options
 
+```
 \-h		Display help for command line options
 
 -poll           poll the xserver for keyboard stat every 25000 us (default)
@@ -126,15 +127,20 @@ You may also switch language by clicking onto the flag._
                 how quick alt and shift must be pressed. Default=10
 -save           save current keycodes to file ($HOME/.xgrk-hostname)
 -restore        restore previously saved keycodes
+```
 
 It is a good idea to put the following in your .xinitrc:  
+```
 `xgrk -save`  
+```
   
 This will create the file $HOME/.xgrk-hostname with the original keycodes.  
 If you don't use an .xinitrc file, just run the above command once from an xterm.  
   
 Then, add to your window manager a mouse menu which executes the following:  
+```
 `xgrk -restore`  
+```
   
 This way, if xgrk gets killed and you're stuck in greek mode, you'll be able to restore the original keyboard status with the mouse menu.
 
@@ -146,20 +152,23 @@ Trick for netscape to display greek fonts in forms and buttons correctly:
 2.  Go to Edit->Preferences-Fonts, choose 8859-1 (or western) (netscape thinks that greek fonts are 8859-1 now), and choose a greek font like Lucidasansgreek for the Variable Width Font field. Do the same for the Fixed Width font.
 
 You're set. You can now use pages like http://www.hellasyellow.gr/onom.html and write greek inside the forms.  
-_Note: The UNIX version of [Mozilla](https://www.mozilla.org) seems to handle greek [almost](https://bugzilla.mozilla.org/show_bug.cgi?id=28019) perfectly :-)_
+_Note: The UNIX version of [Mozilla](https://www.mozilla.org) seems to handle greek [almost](https://bugzilla.mozilla.org/show_bug.cgi?id=28019) perfectly :-)
 
 ### Notes for fvwm2
 
 Add theese to the appropriate fields in your .fvwm2rc:  
-**fvwm2 style:** Style "xgrk" RandomPlacement, NoTitle, StaysOnTop, NoHandles, BorderWidth 0  
+**fvwm2 style:** 
+```
+Style "xgrk" RandomPlacement, NoTitle, StaysOnTop, NoHandles, BorderWidth 0  
+```
   
 **fvwm2 swallow option:**  
 Very cool, it gets swallowed as a button in the bar:  
+```
 \*FvwmButtons( Center Size 60 40 Swallow(UseOld) xgrk \`Exec exec xgrk &\`)
+```
 
 ### Unknown BUGS
-
-Well there should be many bugs. Please mail bug corrections and reports to <!-- var username = "sivann"; var hostname = "cs.ntua.gr"; var linktext = username + "@" + hostname; document.write("<a href=" + "mail" + "to:" + username + "@" + hostname + ">" + linktext + "</a>"); //-->
 
 sivann at cs dot ntua dot gr
 
@@ -181,43 +190,17 @@ and many fonts and links here:[http://www.ccss.de/slovo/unifonts.htm](http://www
 #### Did it work for your OS succesfully?
 
 Please mail me to add your OS in the compatibility list.  
-For bug-reports/questions (please,only xgrk-related!) : <!-- var username = "sivann"; var hostname = "cs.ntua.gr"; var linktext = username + "@" + hostname; document.write("<a href=" + "mail" + "to:" + username + "@" + hostname + ">" + linktext + "</a>"); //-->
 
 sivann at cs dot ntua dot gr
 
-  
 
-![](../images/bluedot.gif)
+* Latest source release. Produces 2 binaries: xgrk,xgrk2. Read the CHANGES [xgrk-1.6.3.tar.gz](xgrk-1.6.3.tar.gz)
+* [xgrk-1.6.3.patch](xgrk-1.6.3.patch) 
+* Security patch by Vacheh D Sardarian [xgrk\_1.6-1\_i386.deb](xgrk_1.6-1_i386.deb)
+* Intel Linux debian package (by [taver](/~taver/)) [wm-xgrk-1.6.tar.gz](wm-xgrk-1.6.tar.gz)
+* A WindowMaker applet written by Nicholas Christopoulos ([\[email protected\]](/cdn-cgi/l/email-protection)) [Binaries](static/)
+* The freshmeat entry * Click for intel and sparc binaries with libXpm static compiled. Download them, make them executable (chmod +x file) and run them. These binaries are not often updated.  [xgrk on freshmeat](http://freshmeat.net/projects/xgrk/)
 
-  
-
-Download Sources/Binaries
-
-[xgrk-1.6.3.tar.gz](xgrk-1.6.3.tar.gz)
-
-Latest source release. Produces 2 binaries: xgrk,xgrk2. Read the CHANGES
-
-[xgrk-1.6.3.patch](xgrk-1.6.3.patch)
-
-Security patch by Vacheh D Sardarian
-
-[xgrk\_1.6-1\_i386.deb](xgrk_1.6-1_i386.deb)
-
-Intel Linux debian package (by [taver](/~taver/))
-
-[wm-xgrk-1.6.tar.gz](wm-xgrk-1.6.tar.gz)
-
-A WindowMaker applet written by Nicholas Christopoulos ([\[email protected\]](/cdn-cgi/l/email-protection))
-
-[Binaries](static/)
-
-Click for intel and sparc binaries with libXpm static compiled. Download them, make them executable (chmod +x file) and run them. These binaries are not often updated.
-
-[xgrk on freshmeat](http://freshmeat.net/projects/xgrk/)
-
-The freshmeat entry
-
-  
 
 *   [CHANGES](current/CHANGES)
 *   [xgrk-1.4.tar.gz](xgrk-1.4.tar.gz) A previous release
@@ -229,7 +212,7 @@ The freshmeat entry
 
 ### OTHER INFO
 
-*   [Screenshots](screenshots.html)
+*   [Screenshots](screenshots/SCREENSHOTS.md)
 
 *   [greekfonts.tar.gz](greekfonts.tar.gz) including some iso-8859-7 fonts and a 437gr (737) greek vga font (made by me), the latter for accessing greek DOS BBSs
 *   [ArialUnicodeMS.ttf.gz](ArialUnicodeMS.ttf.gz) a HUGE unicode font (25MB), includes even ancient greek, works perfectly with Solaris + mozilla
