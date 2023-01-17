@@ -10,6 +10,7 @@ _xgrk **1.6.3** , (C) Spiros Ioannou 1998-2001_
 
 This program is a contribution to the community of greek UNIX users. It provides the possibility to change keyboard mapping with alt-shift or meta-shift combinations or by clicking on the displayed flag image. You will be able to write greek in X programs like netscape, xedit or xterm without the need for a special keyboard or driver. You must have the greek fonts, which are not provided with this package, but you can find some in the link section at the end of this page.  
   
+[Screenshots](screenshots/SCREENSHOTS.md)
 
 ### Compatibility
 
@@ -73,31 +74,18 @@ Usage
 
 You don't have to be root to run this software. For the following information, left or right keys are the same. Note that the keys don't have to be pressed at the same time, only the right order matters.
 
-Action
 
-Key sequence
+| Action | Key sequence |
+| --- | --- |
+| Keyboard mapping switching: | Alt + Shift or Meta + Shift |
+| Accent: | ';' and then the letter |
+| diaeresis (dialitika): | Shift + ';' and then the letter |
+| accented diaeresis: | ';' then Shift+';' and then the letter |
+| Middle Dot (Άνω τελεία ·): | Shift + 'w' |Note: _characters ';' and ':' are mapped to the 'q' key in greek mode. If there is no Alt key, the Meta key is used.  
+You may also switch language by clicking onto the flag._
 
-Keyboard mapping switching:
 
-Alt + Shift or Meta + Shift
-
-Accent:
-
-';' and then the letter
-
-diaeresis (dialitika):
-
-Shift + ';' and then the letter
-
-accented diaeresis:
-
-';' then Shift+';' and then the letter
-
-Middle Dot (��� ������ �):
-
-Shift + 'w'
-
-Note: _characters ';' and ':' are mapped to the 'q' key in greek mode. If there is no Alt key, the Meta key is used.  
+**Note**: _characters ';' and ':' are mapped to the 'q' key in greek mode. If there is no Alt key, the Meta key is used.  
 You may also switch language by clicking onto the flag._
 
 ### Command line options
