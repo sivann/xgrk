@@ -1,0 +1,407 @@
+<html>
+<HEAD>
+   <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-7">
+   <meta NAME="GENERATOR" CONTENT="vim">
+   <meta NAME="description" CONTENT="Write greek in xwindows. Tested in solaris, linux, IRIX, FreeBSD e.t.c.">
+   <meta name="keywords" 
+     CONTENT="greek, keyboard, xwindows, write, language, unix, UNIX,typing,type, writing, linux, freebsd, solaris, support, toggle, IRIX, Sun, X, xwindows, X-Windows, iso8859-7, Netscape">
+
+   <title>XGRK - write greek in the X Window System</title>
+</head>
+
+<!-- BODY 
+      TEXT="white" BGCOLOR="#144462" BACKGROUND="../images/seabg2.jpg" 
+      ALINK="red" LINK="skyblue" VLINK="skyblue1"
+-->
+<body bgcolor=white >
+
+
+
+<table align=center bgcolor=black width="90%">
+<tr><td NOWRAP valign=middle align=center>
+  <FONT FACE="Helvetica,Arial" COLOR="#a0d0d0" SIZE="+3">
+  <I> XGRK - Write GREEK in the X Window System</i>
+  </FONT>
+</td></tr>
+</table>
+
+<p>
+
+
+<table width="100%">
+<tr>
+ <td align=left>
+  <em>xgrk <b>1.6.3</b> , (C) Spiros Ioannou 1998-2001</em><br>
+ </td>
+ <td align=right>
+  <img alt="english" src=uk.png>&nbsp;
+  <img alt="greek" src=greek.png>
+ </td>
+</tr>
+</table>
+
+<p>
+<h3>Introduction</h3>
+This program is a contribution to the community of greek UNIX users. It 
+provides the possibility to change keyboard mapping with alt-shift or 
+meta-shift combinations or by clicking on the displayed flag image.  
+You will be able to write greek in X programs like netscape, xedit or xterm
+without the need for a special keyboard or driver. You must have the greek 
+fonts, which are not provided with this package, but you can find some in the 
+link section at the end of this page. <br>
+
+<br>
+
+
+<p>
+<table border=0 width="100%"><tr>
+<td align=left valign=bottom>
+<h3>Compatibility</h3>
+</td>
+<td align=right>
+<img title=APPLE alt=APPLE src=silverapple.gif>
+<img title=DGUX alt=UNIX src=os-digital.gif>
+<img title=HPUX alt=HPUX src=hplogo.gif>
+<img title=IRIX alt=IRIX src=sgilogo.gif>
+<img title="GNU/Linux" alt="GNU/Linux" src=linuxlogo.gif>
+<img title=SunOS alt=SunOS src=sunlogo.gif>
+</td>
+</tr>
+</table>
+
+<i>This program may not work with recent XFree86 distributions with KDE/GNOME 
+combinations. These systems usually have their own layout switching utilities 
+which usually rely on libraries 
+(e.g. <a href="http://freedesktop.org/Software/LibXklavier">libxklavier</a>)
+which take advantage of the recent XKB Xserver extensions.</i><br><p>
+
+Keycodes are auto-detected on startup so it should work with all unices and
+keyboard layouts.<br>
+
+This program has been <b>succesfully</b> tested with:
+
+<ul>
+<li>i386Linux (Redhat 5.2, Redhat 6, Redhat 6.1, debian 2.1) and the following
+    window managers: fvwm, fvwm2, twm, KDE, GNOME
+<li>KDE 2.1.1, RedHat 7.1, kernel 2.4.2-2 (RedHat's default), Intel P4 box.
+<li>FreeBSD 3.4 with WindowMaker, Enlightenment &amp; GNOME (i386)
+<li>Debian Linux sparc64 with kernel 2.2.14 on a Sun ULTRA 1 and the following 
+    window managers: fvwm, twm
+<li>SparcLinux (Redhat 6) on a Sparc Station 5 and the following window 
+    managers:  fvwm, twm
+<li>Sun Ultra 10 with SunOs 5.7 and Openwin , 24bit display 
+    and type-4 keyboard, non-greek ready (dip switches under the keyboard) and
+    the following window managers: fvwm, twm, CDE, KDE
+<li>Sparc Station 10 with Solaris 2.6 , 8bit display and type 3 keyboard and the
+    following window managers: fvwm, CDE
+<li>Silicon Graphics Indy R5500 with IRIX 6.2, the default X server,
+    8bit display and the following window managers: twm,mwm,4Dwm
+<li>Hewllet Packard apollo 9000/730 running HP-UX A.09.05 C  
+    (Alt key = key named 'Extended char') and the following window manager:
+    HP-VUE
+<li>MacOSX 10.3.2/Apple X11 1.0 (XFree 4.3.0 based) (you must first disable 
+    "Follow system keyboard layout" from X11/Preferences/Input)
+<li>MacOSX 10.4 Tiger/Apple X11 
+<li>opteron 242/Solaris 10 
+</ul>
+
+
+<p>
+<h3>Requirements</h3>
+I tried to make it as simple as possible, so it depends only on Xlib for the
+main functionality and libXpm for the .xpm flag.<p>
+
+The greek/uk flag images are in xpm format so that you can change them as you
+please.  <br>
+The XPM library (libXpm) can be found here: 
+<a href="ftp://koala.inria.fr/pub/xpm/">ftp://koala.inria.fr/pub/xpm/</a>
+or here 
+<a href="http://koala.ilog.fr/ftp/pub/xpm/">http://koala.ilog.fr/ftp/pub/xpm/</a><br>
+The X keyboard extensions (XKB) are <b>not</b> needed.
+
+<p>
+<br>
+
+<h2>Installation</h2>
+1. run make<br>
+2. copy the <b>"xgrk"</b> and <b>"xgrk2"</b> binaries somewhere in your path 
+   like /usr/local/X11/bin<br>
+<p>
+<table border=1 cellspacing=2 cellpadding=5 align=center >
+<tr><td bgcolor="#ccddff">
+The xgrk2 binary is created with an alternative xgrk.h from <a href="mailto:lkreouz@internet.gr">E. Lefty Kreouzis </a><br>
+This one seems to work with different aplications, probably unicode-enabled like
+the new mozilla builds, gterm etc.<br>
+For non-unicode apps like xterm, xedit, netscape communicator 4.7x use xgrk.<br>
+<i>xgrk and xgrk2 cannot run at the same time.</i>  <br>
+<ul>
+<li>For xgrk2 you may need _XKB_CHARSET=iso8859-7 in your environment.
+<li>xgrk2 does not support the middle dot
+</ul>
+</td></tr></table>
+
+<p>
+<table border=1 cellspacing=2 cellpadding=5 align=center >
+<tr><td bgcolor="#eccdef">
+Hint by Athanasios Douitsis: to run in MacOS's X11 server: edit xgrk.h and xgrk2.h and <br>
+<pre>
+<i>replace:</i>
+#define DUMMY1 XK_F30
+#define DUMMY2 XK_F31
+<i>with:</i>
+#define DUMMY1 XK_Shift_L
+#define DUMMY2 XK_Shift_L
+</pre>
+You can alternatively download the compiled universal binary below.
+</td></tr></table>
+
+<p>
+<h2>Usage</h2>
+You don't have to be root to run this software.
+For the following information,  left or right keys are the same. Note that 
+the keys don't have to be pressed at the same time, only the right order 
+matters.
+<p>
+<!--table border=1 align=center background="../images/checkered.gif"-->
+
+<table border=1 cellspacing=2 cellpadding=5 align=center >
+<tr><th bgcolor="#ccddff">Action</th><th bgcolor="#ccddff">Key sequence</th></tr>
+<tr><td bgcolor="#eeffff">Keyboard mapping switching:</td> 
+    <td bgcolor="#eeffff"> Alt + Shift or Meta + Shift </td>
+<tr><td bgcolor="#ddeeff">Accent: </td>  
+    <td bgcolor="#ddeeff">   ';' and then the  letter</td>
+<tr><td bgcolor="#eeffff">diaeresis (dialitika): </td> 
+    <td bgcolor="#eeffff">  Shift + ';' and then the letter</td>
+<tr><td bgcolor="#ddeeff">accented diaeresis:</td>
+    <td bgcolor="#ddeeff">';' then Shift+';' and then the letter </td>
+<tr><td bgcolor="#eeffff">Middle Dot (Άνω τελεία ·): </td> 
+    <td bgcolor="#eeffff">  Shift + 'w' </td>
+
+<caption align=bottom>
+Note: <i>characters ';' and ':' are mapped to the 'q' key in greek mode. If 
+there is no Alt key, the Meta key is used.<br>
+You may also switch language by clicking onto the flag. 
+</i>
+</caption>
+</table>
+
+<p>
+
+<h3>Command line options </h3>
+<pre>
+
+-h		Display help for command line options
+
+-poll           poll the xserver for keyboard stat every 25000 us (default)
+                This is the default, it works very well, it doesn't take cpu 
+                and works under xterm's 'Secure Keyboard'
+
+-event          event based keyboard monitoring
+                This is event-based operation, but windows mapped after the 
+                xgrk starts aren't always captured by xgrk
+
+-noflag         don't display a window. 
+-display        display to connect to
+-geometry       where to popup (ex.: -geometry +0+100 or -geometry -1-1)
+-v              be verbose
+-pi &lt;interval&gt;  default poll interval value is 25000 microseconds.
+                If set too high, it will miss keystrokes,
+                if set too low, it will eat up cpu.
+-rd &lt;interval&gt;  default reset delay value is 100000 microseconds.
+                If set too high, you'll get many accented greek characters.
+                If set too low, characters won't be accented.
+-tt             toggle timeout: counted in "poll_interval"s
+                how quick alt and shift must be pressed. Default=10
+-save           save current keycodes to file ($HOME/.xgrk-hostname)
+-restore        restore previously saved keycodes
+
+</pre>
+
+
+<table border=0 width="100%">
+<tr><td bgcolor="#efffef">
+
+It is a good idea to put the following in your .xinitrc:<br>
+<code>xgrk -save</code><br><br>
+This will create the file $HOME/.xgrk-hostname with the original
+keycodes.<br> If you don't use an .xinitrc file, just run the above command
+once from an xterm.<br><br>
+
+Then, add to your window manager a mouse menu which executes the following:<br>
+<code> xgrk -restore</code><br><br>
+This way, if xgrk gets killed and you're stuck in greek mode, you'll be
+able to restore the original keyboard status with the mouse menu.
+
+</td></tr>
+</table>
+
+
+<table border=0 width="100%">
+<tr><td bgcolor="#efefff">
+
+<p><h3>Notes for greek support in Netscape 4.x</h3>
+
+Trick for netscape to display greek fonts in forms and buttons correctly: 
+
+<ol>
+<li>Start netscape with :
+   netscape -xrm "*documentFonts.charset*iso8859-7:iso-8859-1"
+
+<li>Go to Edit-&gt;Preferences-Fonts, choose 8859-1 (or western) 
+   (netscape thinks that greek 
+   fonts are 8859-1 now), and choose a greek font like Lucidasansgreek for
+   the Variable Width Font field.
+   Do the same for the Fixed Width font.
+</ol>
+
+You're set. You can now use pages like http://www.hellasyellow.gr/onom.html
+and write greek inside the forms.<br>
+<i>Note: The UNIX version of <a href="http://www.mozilla.org">Mozilla</a> 
+seems to handle greek 
+<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=28019">almost</a>
+perfectly :-)</i>
+
+
+<p>
+<h3>Notes for fvwm2</h3>
+Add theese to the appropriate fields in your .fvwm2rc:<br>
+
+<strong>fvwm2 style:</strong>
+Style   "xgrk"   RandomPlacement, NoTitle, StaysOnTop, NoHandles, BorderWidth 0
+<br><br>
+
+<strong>fvwm2 swallow option:</strong><br>
+Very cool, it gets swallowed as a button in the bar:<br>
+*FvwmButtons( Center Size 60 40 Swallow(UseOld) xgrk `Exec exec xgrk &amp;`)
+
+</td></tr>
+</table>
+
+
+<p><h3>Unknown BUGS</h3>
+Well there should be many bugs. Please mail bug corrections and reports to
+<script language=javascript>
+<!--
+var username = "sivann";
+var hostname = "cs.ntua.gr";
+var linktext = username + "@" + hostname;
+document.write("<a href=" + "mail" + "to:" + username +
+"@" + hostname + ">" + linktext + "</a>");
+//-->
+</script> 
+<noscript>
+sivann at cs dot ntua dot gr
+</noscript>
+
+</p>
+
+<table border=0 width="100%">
+<tr><td bgcolor="#ffaaaa">
+<h3>TODO</h3>
+I've been asked to implement the following stuff. I'll try to implement them
+when I find the time.<br>
+<ul>
+<li>Configurable accent key (for Norwegian keyboards which produce ';' 
+     with Shift+',').
+<li>Support for unicode polytonic greek (ancient greek)
+<li>Better support for Control sequences. (Switch back to greek after Ctrl+c ?)
+<li>Unify xgrk and xgrk2
+</ul>
+</td>
+</tr>
+</table>
+
+
+<p><h3>MORE HELP</h3>
+You can mail me for help.<br>
+
+Other useful info can be found at: 
+<a href="http://www.hri.org/fonts">http://www.hri.org/fonts</a>
+<br>
+and  many fonts and links here:<a href="http://www.ccss.de/slovo/unifonts.htm">http://www.ccss.de/slovo/unifonts.htm</a>
+<p>
+
+<h4>
+Did it work for your OS succesfully?</h4> 
+Please mail me to add your OS in the compatibility list.
+
+<br>
+For bug-reports/questions (please,only xgrk-related!) :
+
+
+<script language=javascript>
+<!--
+var username = "sivann";
+var hostname = "cs.ntua.gr";
+var linktext = username + "@" + hostname;
+document.write("<a href=" + "mail" + "to:" + username +
+"@" + hostname + ">" + linktext + "</a>");
+//-->
+</script> 
+<noscript>
+sivann at cs dot ntua dot gr
+</noscript>
+
+<p><br>
+<center> <img src="../images/bluedot.gif" width=400 height=2> </center>
+<br>
+
+<p>
+<UL>
+
+<table border=1 cellspacing=1 cellpadding=5 width=90% align=center>
+<tr><th colspan=2>Download Sources/Binaries</th></tr>
+<tr>
+<TR><td width=30%><A HREF="xgrk-1.6.3.tar.gz">xgrk-1.6.3.tar.gz</A></td>
+    <td>Latest source release. Produces 2 binaries: xgrk,xgrk2. Read the CHANGES</td></TR>
+
+<TR><td width=30%><A HREF="xgrk-1.6.3.patch">xgrk-1.6.3.patch</A></td>
+    <td>Security patch by Vacheh D Sardarian</td></TR>
+
+<TR><td><A HREF="xgrk_1.6-1_i386.deb">xgrk_1.6-1_i386.deb</A></td>
+    <td>Intel Linux debian package (by <a href=/~taver/>taver</a>)</td></TR>
+
+<TR><td><A HREF="wm-xgrk-1.6.tar.gz">wm-xgrk-1.6.tar.gz</A></td>
+    <td>A WindowMaker applet written by Nicholas  Christopoulos (wired_gr@yahoo.com)</td></TR>
+<TR><td><a href="static/">Binaries</a></td>
+    <td>Click for intel and sparc binaries with libXpm static compiled. 
+        Download them, make them executable (chmod +x file) and run them. These
+        binaries are not often updated.
+    </td></TR>
+<TR><td><a href="http://freshmeat.net/projects/xgrk/">xgrk on freshmeat</a></td>
+    <td>The freshmeat entry 
+    </td></TR>
+
+</table>
+<br>
+<p>
+
+<!-- change the current.tar.gz also-->
+<LI> <A HREF="current/CHANGES">CHANGES</A></LI>
+<LI> <A HREF="xgrk-1.4.tar.gz">xgrk-1.4.tar.gz</A> A previous release </li>
+<LI> <A HREF="xpm-3.4k.tar.gz">xpm-3.4k.tar.gz</A> A locally stored and probably outdated version of LibXPM. Get the original from <br>
+<a href=ftp://koala.inria.fr/pub/xpm/>ftp://koala.inria.fr/pub/xpm/</a>
+or 
+<a href="http://koala.ilog.fr/ftp/pub/xpm/">http://koala.ilog.fr/ftp/pub/xpm/</a><br>
+</li>
+</ul>
+
+
+<br>
+<p><h3>OTHER INFO</h3>
+<p>
+<UL>
+<LI> <A HREF="screenshots.html">Screenshots</A> </LI>
+<p>
+<LI> <A HREF="greekfonts.tar.gz">greekfonts.tar.gz</A> including some iso-8859-7 fonts and a 437gr (737) greek vga font (made by me), the latter for accessing greek DOS BBSs
+<LI> <A HREF="ArialUnicodeMS.ttf.gz">ArialUnicodeMS.ttf.gz</A> a HUGE unicode font (25MB), includes even ancient greek, works perfectly with Solaris + mozilla</li>
+<LI> <A HREF="iso8859-7.html">iso8859-7 map</A> </LI>
+<LI> <A HREF="greek-zvr.html">Dealing with Greek Characters in Computers</A> by Alexios Zavras </LI>
+<LI> <A HREF="http://grkbd.pathfinder.gr">grkbd, a similar software, pc-oriented</A></LI>
+<LI> <A HREF="grvi.c">grvi.c</a> , runs vim through a pipe and translates keystrokes.</LI>
+<LI> <A HREF="U0370.pdf">U0370.pdf</a> Greek Unicode fonts</LI>
+</ul>
+<p>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+xgrk 1.6 , (C) Spiros Ioannou 3/2000
+
+** This file may be outdated, check the web page **
+
+About
+-----
+This program is a contribution to the community of greek UNIX users. It makes
+it possible to change keyboard mapping with alt-shift or meta-shift 
+combinations or by clicking on the flag image.  You will be able to write
+greek in X programs like netscape or xedit. You must have the greek fonts,
+which are not provided with this package.
+
+New versions of the software can be found at:
+http://www.softlab.ece.ntua.gr/~sivann/xgrk
+
+
+Compatibility
+-------------
+Keycodes are auto-loaded on startup so it should work with all unices and
+keyboard layouts.
+
+This program has been tested with:
+
+-Linux (2.2.5) (XFree)
+-FreeBSD 
+-Sun Ultra1 with Solaris 2.7 with the default sun's X11R6 and 24bit display 
+-Silicon Graphics Indy R5500 with IRIX 6.2 the default X server and 8bit display
+
+Requirements
+------------
+The XPM library (libXpm) which can be downloaded from:
+
+ftp://koala.inria.fr/pub/xpm/
+
+
+Installation
+------------
+1. run make
+2. copy the xgrk binary somewhere like /usr/local/X11/bin
+
+Usage
+-----
+You don't have to be root to run this software.
+For the following information,  left or right keys are the same. Note that 
+none of the keys has to be pressed at the same time, only the right order 
+matters.
+
+Keyboard switching:          Alt + Shift 
+Accent:                      ';' and then the  letter
+diaeresis (dialitika):       Shift + ';' and then the letter
+accented diaeresis:          ';' then Shift+';' and then the letter 
+
+Characters ';' and ':' are mapped to the 'q' key in greek mode.
+
+You may also switch language by clicking onto the flag.
+
+Command line options 
+--------------------
+-poll		poll the xserver for keyboard stat every 25000 us (default)
+-event		event based keyboard monitoring
+-noflag		don't display a window
+-display	display to connect to
+-geometry	where to popup
+-pi		default value is 25000 microseconds.
+		If set too high, it will miss keystrokes,
+		if set too low, it will eat up cpu.
+-rd		default value is 100000 microseconds.
+		If set too high, you'll get many accented greek characters.
+		If set too low, characters won't be accented.
+-save		save current keycodes 
+-restore	restore previously saved keycodes
+-v		be verbose 
+
+
+
+--------------------------------------------------------
+It is a good idea to put the following in your .xinitrc:
+xgrk -save
+And have a mouse menu to run the following: xgrk -restore
+--------------------------------------------------------
+
+
+
+
+Notes for greek support in Netscape
+-----------------------------------
+
+Trick for netscape to display correctly greek fonts in forms & buttons: 
+
+1. Start netscape with :
+   netscape -xrm "*documentFonts.charset*iso8859-7:iso-8859-1"
+
+2. Go to Edit->Preferences-Fonts, choose 8859-1 (netscape thinks that greek 
+   fonts are 8859-1 now), and choose a greek font like Lucidasansgreek for
+   the Variable Width Font field.
+   Do the same for the Fixed Width font.
+
+You're set. You can now use pages like http://www.hellasyellow.gr/onom.html
+and write greek in the forms.
+
+
+Notes for fvwm2
+---------------
+Add theese to the appropriate fields in your .fvwm2rc:
+
+fvwm2 style:
+Style   "xgrk"   RandomPlacement ,NoTitle, StaysOnTop, NoHandles, BorderWidth 0
+
+fvwm2 swallow option.Very cool, it gets swallowed as a button in the bar:
+*FvwmButtons( Center Size 60 40 Swallow(UseOld) xgrk `Exec exec xgrk &`)
+
+
+BUGS
+----
+Well there should be many bugs. Please mail bug corrections and reports to
+sivann@softlab.ece.ntua.gr
+
+
+Known BUGS/FEATURES
+-------------------
+1. Keys Alt+Shift or Shift+';' don't have to be pressed at the same time. 
+
+
+
+MORE HELP
+---------
+New versions of the software can be found at:
+http://www.softlab.ece.ntua.gr/~sivann/xgrk
+
+Other usefull info can be found at: "http://www.hri.org"
+
+
+-Spiros Ioannou
+ sivann@softlab.ece.ntua.gr
+

@@ -1,0 +1,61 @@
+Version 1.6.3
+- a patch to Makefile for MacOSX from Dimitris Dinodimos <dimdin@otenet.gr>        
+
+Version 1.6.2
+-------------
+- bug fix in xgrk2.h with accented omicron 
+  (by Michael Marder <marder@chaos.ph.utexas.edu>)
+
+Version 1.6.1
+-------------
+- help update
+- new xpm images from christia@softlab.ntua.gr
+- alternative xgrk.h from E. Lefty Kreouzis" <lkreouz@internet.gr>. This
+  one seems to work with different aplications, probably unicode-enabled. 
+  For example it works with the new mozilla but not with xedit. Two
+  binaries are created: xgrk, xgrk2. They cannot run at the same time though.
+  You may need _XKB_CHARSET=iso8859-7 in your environment.
+
+Version 1.6
+-----------
+- handle close event from window manager (WM_DELETE_WINDOW)
+
+
+Version 1.5
+-----------
+- added Middle Dot (Shift+W)
+- added NOXPM option in Makefile (compile without xpm support)
+- added -save & -restore options to restore keymap in a sane state
+  in case of a crash
+- timer between alt-shift (toggle keys)
+
+Version 1.4
+-----------
+- change in Makefile for FreeBSD (by Panagiotis Astithas)
+- bug fix in -geometry (Achilles Voliotis)
+
+Version 1.3
+-----------
+- command-line specified poll_interval
+- command-line specified reset_delay
+
+Version 1.2
+-----------
+- When we were in Latin mode and pressed Alt+Shift and then pressed 
+  accent+vowel, we ended up with diaeresis because of the shift in 
+  alt+shift - fixed
+
+Version 1.1
+-----------
+- No more need for the .xpm files, they are compiled in the binary.
+- Left/Right shift/alt/meta can be used.
+- switches back to UK layout when killed with SIGTERM,SIGHUP,SIGTERM .
+- Race condition bug corrected in poll mode.
+- Modified Makefile
+- When hitting Ctrl in greek mode, english mode is auto-enabled.
+- Other minor bug fixes
+
+Version 1.01a
+------------
+- tries to switch to UK layout when killed from X.
+

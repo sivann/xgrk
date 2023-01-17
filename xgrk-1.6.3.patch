@@ -1,0 +1,64 @@
+diff -urN xgrk-1.6.3/xgrk.c xgrk-1.6.3-new/xgrk.c
+--- xgrk-1.6.3/xgrk.c	2001-03-19 13:44:07.000000000 -0500
++++ xgrk-1.6.3-new/xgrk.c	2010-12-08 17:19:46.695522517 -0500
+@@ -18,7 +18,7 @@
+ #include <signal.h>
+ #include <unistd.h>
+ #include <fcntl.h>
+-
++#inlcude <string.h>
+ #include "xgrk_uk.xpm"
+ #include "xgrk_el.xpm"
+ 
+@@ -201,7 +201,7 @@
+       perror("gethostname");
+       exit(errno);
+     }
+-    sprintf(buff,"%s/.xgrk-%s",getenv("HOME"),hostname);
++    snprintf(buff,sizeof buff,"%s/.xgrk-%s",getenv("HOME"),hostname);
+     sfd=open(buff,O_WRONLY|O_CREAT, 0644);
+     if (!sfd) {
+       perror(buff);
+@@ -217,7 +217,7 @@
+       perror("gethostname");
+       exit(errno);
+     }
+-    sprintf(buff,"%s/.xgrk-%s",getenv("HOME"),hostname);
++    snprintf(buff,sizeof buff,"%s/.xgrk-%s",getenv("HOME"),hostname);
+     sfd=open(buff,O_RDONLY);
+     if (!sfd) {
+       perror(buff);
+@@ -351,7 +351,7 @@
+ 	  keycode = -kc;
+ 	}
+ 
+-      memcpy (prev_keymap, cur_keymap, 32);
++      memmove (prev_keymap, cur_keymap, 32);
+     }
+     if (keycode==control_l) {	/*switch to Latin to get Ctrl characters*/
+       if (state>=0) { 
+@@ -490,7 +490,7 @@
+     if (count == 0) {
+       tmp = XKeysymToString (ks);
+       if (tmp)
+-	strcpy (key_buff, tmp);
++	strncpy (key_buff, tmp, sizeof(key_buff));
+       else
+ 	key_buff[0] = 0;
+     }
+@@ -552,10 +552,10 @@
+     exit (errno);
+   }
+ 
+-  memcpy (greek_plain_ks, original_ks, keycode_size);
+-  memcpy (greek_accent_ks, original_ks, keycode_size);
+-  memcpy (greek_diaeresis_ks, original_ks, keycode_size);
+-  memcpy (greek_diaeresis_accent_ks, original_ks, keycode_size);
++  memmove (greek_plain_ks, original_ks, keycode_size);
++  memmove (greek_accent_ks, original_ks, keycode_size);
++  memmove (greek_diaeresis_ks, original_ks, keycode_size);
++  memmove (greek_diaeresis_accent_ks, original_ks, keycode_size);
+ 
+   for (i = 0; i < sizeof(letters); i++) {
+     keycode = greek_plain[i][0];	/* keycodes are the same in all tables*/
+
